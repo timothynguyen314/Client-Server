@@ -13,7 +13,7 @@ client.c
 	Receives input from server via socket and outputs to display.
 	Pipes and polls manage I/O.
 
-	Supports mandatory --port argument; client and server must be on same port# for I/O to work.
+	Supports mandatory --port=portnum argument; client and server must be on same port# for I/O to work.
 	Supports --log=filename option that records all data sent from and received by the client.
 	Supports --encrypt option to encrypt data being passed between client and server.
 
@@ -22,7 +22,7 @@ server.c
 	Uses fork to execute command on one process, and pass output of command via socket to client on other process.
 	Pipes and polls manage I/O.
 
-	Supports mandatory --port argument; client and server must be on same port# for I/O to work.
+	Supports mandatory --port=portnum argument; client and server must be on same port# for I/O to work.
 	Supports --encrypt option to encrypt data being passed between client and server.
 
 my.key
