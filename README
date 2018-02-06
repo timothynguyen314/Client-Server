@@ -1,0 +1,29 @@
+CLIENT_SERVER builds a basic client/server relationship, where a client takes input from the keyboard, where they will be run as shell commands on a server, and the output will be returned from the server to the client via socket.
+This program can be tested by first running server in one terminal window with a designated port#, and then running client in another terminal window with the same port#.
+An encrypt option is supported to encrypt data being passed between client and server.
+A log option records all data sent from and received by the client, and is useful for testing encryption.
+
+==========FILES==========
+
+Makefile
+	Supports make, make clean, and make dist
+
+client.c
+	Takes input from keyboard and uses a socket to pass said input to server.
+	Receives input from server via socket and outputs to display.
+	Pipes and polls manage I/O.
+
+	Supports mandatory --port argument; client and server must be on same port# for I/O to work.
+	Supports --log=filename option that records all data sent from and received by the client.
+	Supports --encrypt option to encrypt data being passed between client and server.
+
+server.c
+	Takes input from client via socket.
+	Uses fork to execute command on one process, and pass output of command via socket to client on other process.
+	Pipes and polls manage I/O.
+
+	Supports mandatory --port argument; client and server must be on same port# for I/O to work.
+	Supports --encrypt option to encrypt data being passed between client and server.
+
+my.key
+	key used for encryption
